@@ -7,16 +7,17 @@
 		<script src="ember-data.js"></script>
 		<script src="ember-template-compiler.js"></script>
 		<script src="app.js"></script>
-		<link href="bootstrap-3.3.6-dist\css\bootstrap.css" media="screen" rel="stylesheet" />
+		<link href="css/bootstrap.css" media="screen" rel="stylesheet" />
+		<link href="css/application.css" media="screen" rel="stylesheet" />
 	</head>
 	<body>
 	  <script type='text/x-handlebars' data-template-name='application'>
 			<div class='navbar navbar-default'>
 				<div class='container'>
-					<a href='#' class='navbar-brand'><img src='images/logo.png' alt='logo' height='34' width='224' /></a>
+					{{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
 					<ul class='nav navbar-nav navbar-right'>
-						<li class='active'><a href='#'>Home</a></li>
-						<li><a href='#/about'>About</a></li>
+						{{#link-to 'index' tagName='li'}}Home{{/link-to}}
+						{{#link-to 'about' tagName='li'}}About{{/link-to}}
 					</ul>
 				</div>
 			</div>
@@ -26,7 +27,7 @@
 			<footer class='container'>
 				<hr />
 				<p class='pull-left'>&#169; 2013 The Flint &amp; Flame</p>
-				<p class='pull-right'><a href='#/credits'>Credits</a></p>
+				<p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
 			</footer>
 		</script>
 		
@@ -39,7 +40,8 @@
 		</script>
 		
 		<script type='text/x-handlebars' data-template-name='credits'>
-			<h1></h1>
+			<h1>Thanks for the Help!</h1>
+			<p>This site would not be possible without the hardworking Ember Core Team!</p>
 		</script> 	  
 	</body>
 </html>
