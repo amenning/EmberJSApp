@@ -34,14 +34,14 @@ App.PRODUCTS = [
 		price: 99,
 		description: 'Flint is...',
 		isOnSale: true,
-		image: 'flint.png'
+		image: 'images/products/flint.png'
 	},
 	{
 		title: 'Kindling',
 		price: 249,
 		description: 'Easily...',
 		isOnSale: false,
-		image: 'kindling.png'
+		image: 'images/products/kindling.png'
 	}	
 ];
 
