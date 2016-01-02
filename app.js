@@ -5,6 +5,7 @@ var App = Ember.Application.create({
 App.Router.map(function() {
   this.route('about');
   this.route('credits', {path: 'thanks'});
+  this.resource('products');
 });
 
 App.IndexController = Ember.Controller.extend({
@@ -25,4 +26,27 @@ App.AboutController = Ember.Controller.extend({
     	return 'Closed';
     }
   }.property()
+});
+
+App.PRODUCTS = [
+	{
+		title: 'Flint',
+		price: 99,
+		description: 'Flint is...',
+		isOnSale: true,
+		image: 'flint.png'
+	},
+	{
+		title: 'Kindling',
+		price: 249,
+		description: 'Easily...',
+		isOnSale: false,
+		image: 'kindling.png'
+	}	
+];
+
+App.ProductsRoute = Ember.Route.extend({
+	model: function(){
+		return App.PRODUCTS;
+	}
 });
