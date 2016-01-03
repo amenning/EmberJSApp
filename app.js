@@ -3,11 +3,12 @@ var App = Ember.Application.create({
 });
 App.Router.map(function() {
   this.route('credits', { path: '/thanks' });
-  this.route('about');
-  this.resource('products');
-  this.resource('product', { path: '/products/:title' });
-  this.resource('contacts');
-  this.resource('contact', {path: '/contacts/:name'});
+  this.resource('products', function() {
+  	this.resource('product', { path: '/products/:title' });
+  });
+  this.resource('contacts', function() {
+  	this.resource('contact', { path: '/:name' });
+  });
 });
 
 App.IndexController = Ember.Controller.extend({
@@ -17,7 +18,7 @@ App.IndexController = Ember.Controller.extend({
     return (new Date()).toDateString();
   }.property()
 });
-App.AboutController = Ember.Controller.extend({
+App.ContactsIndexController = Ember.Controller.extend({
   contactName: 'Anostagia',
   avatar: 'images/avatar.png',
   open: function() {

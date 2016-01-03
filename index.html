@@ -11,101 +11,120 @@
 		<link href="css/application.css" media="screen" rel="stylesheet" />
 	</head>
 	<body>
-	<script type='text/x-handlebars' data-template-name='application'>
-		<div class='navbar navbar-default'>
-		  <div class='container'>
-			{{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
-			<ul class='nav navbar-nav navbar-right'>
-			  {{#link-to 'index' tagName='li'}}Home{{/link-to}}
-			  {{#link-to 'about' tagName='li'}}About{{/link-to}}
-			  {{#link-to 'products' tagName='li'}}Products{{/link-to}}
-			  {{#link-to 'contacts' tagName='li'}}Contacts{{/link-to}}
-			</ul>
-		  </div>
-		</div>
-		<div class='container'>
-		  {{outlet}}
-		</div>
-		<footer class='container'>
-		  <hr />
-		  <p class='pull-left'>&#169; 2013 The Flint &amp; Flame</p>
-		  <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
-		</footer>
-	  </script>
-	  <script type='text/x-handlebars' data-template-name='index'>
-		<div class='jumbotron'>
-		  <h1>Welcome to The Flint &amp; Flame!</h1>
-		  <p class='tagline'>
-			<img src={{logo}} alt='Logo' />
-			Everything you need to make it through the winter.
-		  </p>
-		  <p>
-			{{#link-to 'products' class='btn btn-primary btn-lg'}}
-			  Browse All {{productsCount}} Items &#187;
-			{{/link-to}}
-		  </p>
-		</div>
-		<p class='pull-right text-muted'>Rendered on {{time}}</p> 
-	  </script>
-	  <script type='text/x-handlebars' data-template-name='about'>
-		<div class='row'>
-		  <img src={{avatar}} alt={{Avatar}} class='img-thumbnail col-sm-4'/>
-		  <div class='col-sm-8'>
-			<h1>About The Fire Sprites</h1>
-			<p>Contact {{contactName}} for more info!</p>
-			<p>Current Status: {{open}}.</p>
-		  </div>
-		</div>
-	  </script>
-	  <script type='text/x-handlebars' data-template-name='credits'>
-		<h1>Thanks for the Help!</h1>
-		<p>This site would not be possible without the hardworking Ember Core Team!</p>
-	  </script>
-	  <script type='text/x-handlebars' data-template-name='products'>
-		<h1>Products</h1>
-		<ul class='list-unstyled'>
-		{{#each model as |product|}}
-		  <li class='row'>
-			<img src={{product.image}} class='img-thumbnail col-sm-5'/>
-			<div class='col-sm-7'>
-			  <h2>{{product.title}}</h2>
-			  <p class='product-description'>{{product.description}}</p>
-			  <p>{{#link-to 'product' product.title class='btn btn-success' tagName='button'}}Buy for ${{product.price}}{{/link-to}}</p>
+		<script type='text/x-handlebars' data-template-name='application'>
+			<div class='navbar navbar-default'>
+				<div class='container'>
+					{{#link-to 'index' class='navbar-brand'}}<img src='images/logo.png' alt='logo' height='34' width='224' />{{/link-to}}
+					<ul class='nav navbar-nav navbar-right'>
+						{{#link-to 'index' tagName='li'}}Home{{/link-to}}
+						{{#link-to 'products' tagName='li'}}Products{{/link-to}}
+						{{#link-to 'contacts' tagName='li'}}Contacts{{/link-to}}
+					</ul>
+				</div>
 			</div>
-		  </li>
-		{{/each}}
-		</ul>
-	  </script>
-	  <script type='text/x-handlebars' data-template-name='product'>
-		<div class='row'>
-		  <div class='col-sm-7'>
-			<h2>{{model.title}}</h2>
-			<h3 class='text-success'>${{model.price}}</h3>
-			<p class='text-muted'>{{model.description}}</p>
-		  </div>
-		  <div class='col-sm-5'>
-			<img src={{model.image}} class='img-thumbnail img-rounded'/>
-		  </div>
-		</div>
-	  </script>
-	  <script type='text/x-handlebars' data-template-name='contacts'>
-		<h1>Contacts</h1>
-		<ul class='list-unstyled'>
-		{{#each model as |contact|}}
-		  <li class='row'>
-			<img src={{contact.avatar}}  alt={{contact.name}} class='img-thumbnail col-sm-5'/>
-			<div class='col-sm-7'>
-			  <h2>{{#link-to 'contact' contact.name}}{{contact.name}}{{/link-to}}</h2>
-			  <p>{{contact.about}}</p>
+			<div class='container'>
+				{{outlet}}
 			</div>
-		  </li>
-		{{/each}}
-		</ul>
+			<footer class='container'>
+				<hr />
+				<p class='pull-left'>&#169; 2013 The Flint &amp; Flame</p>
+				<p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+			</footer>
 		</script>
+		
+		<script type='text/x-handlebars' data-template-name='index'>
+			<div class='jumbotron'>
+				<h1>Welcome to The Flint &amp; Flame!</h1>
+				<p class='tagline'>
+					<img src={{logo}} alt='Logo' />
+					Everything you need to make it through the winter.
+				</p>
+				<p>
+					{{#link-to 'products' class='btn btn-primary btn-lg'}}
+						Browse All {{productsCount}} Items &#187;
+					{{/link-to}}
+				</p>
+			</div>
+			<p class='pull-right text-muted'>Rendered on {{time}}</p> 
+		</script>
+		
+		<script type='text/x-handlebars' data-template-name='contacts/index'>
+			<div class='row'>
+				<img src={{avatar}} alt={{Avatar}} class='img-thumbnail col-sm-4'/>
+				<div class='col-sm-8'>
+					<h1>About The Fire Sprites</h1>
+					<p>Contact {{contactName}} for more info!</p>
+					<p>Current Status: {{open}}.</p>
+				</div>
+			</div>
+		</script>
+		
+		<script type='text/x-handlebars' data-template-name='credits'>
+			<h1>Thanks for the Help!</h1>
+			<p>This site would not be possible without the hardworking Ember Core Team!</p>
+		</script>
+		
+		<script type='text/x-handlebars' data-template-name='products'>
+			<div class='row'>
+				<div class='col-sm-3'>
+					<div class='list-group'>
+						{{#each model as |product|}}
+							<p>{{#link-to 'product' product.title className='list-group-item'}}
+								{{product.title}}
+							{{/link-to}}</p>
+						{{/each}}
+					</div>
+				</div>
+				<div class='col-sm-9'>
+					{{outlet}}
+				</div>
+			</div>
+		</script>
+		
+		<script type='text/x-handlebars' data-template-name='product'>
+			<div class='row'>
+			  <div class='col-sm-7'>
+				<h2>{{model.title}}</h2>
+				<h3 class='text-success'>${{model.price}}</h3>
+				<p class='text-muted'>{{model.description}}</p>
+			  </div>
+			  <div class='col-sm-5'>
+				<img src={{model.image}} class='img-thumbnail img-rounded'/>
+			  </div>
+			</div>
+		</script>
+		
+		<script type='text/x-handlebars' data-template-name='products/index'>
+			<p class='text-muted'>Choose a product from those on the left!</p>
+		</script>
+	  
+		<script type='text/x-handlebars' data-template-name='contacts'>
+			<div class='row'>
+				<div class='col-sm-9'>
+					{{outlet}}
+				</div>
+				<div class='col-sm-3'>
+					<div class='list-group'>
+						{{#each model as |contact|}}
+							{{#link-to 'contact' contact.name classNames='list-group-item'}}
+								{{contact.name}}
+							{{/link-to}}
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</script>
+		
 		<script type='text/x-handlebars' data-template-name='contact'>
-			<h1>{{model.name}}</h1>
-			<p>{{model.about}}</p>
-			<img src={{model.avatar}} alt={{model.name}} />
-		</script>  
+			<div class='row'>
+				<div class='col-sm-5'>
+					<img src={{model.avatar}} alt={{model.name}} class='img-thumbnail img-rounded'/>
+				</div>
+				<div class='col-sm-7'>
+					<h2>{{model.name}}</h2>
+					<p>{{model.about}}</p>
+				</div>
+			</div>
+		</script>
 	</body>
 </html>
